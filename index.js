@@ -6,12 +6,12 @@ import { addCart, cartProduct, deleteCart, getCartdata, updateCart } from "./con
 import { Brands, Devices, Disease, Multivitamins, Topseller } from "./controllers/product.controller.js";
 
 
-// const cors = require("cors");
+import cors from "cors";
 
 const app = express();
 
 app.use(express.json());
-// app.use(cors());
+app.use(cors());
 
 app.post("/register", register);
 app.post("/login", login);
@@ -34,7 +34,7 @@ app.patch('/cart/:id', updateCart);
 app.get('/cart', cartProduct)
 
 
-app.listen(3050, () => {
+app.listen(3060, () => {
     connection();
     console.log("Connected to DB")
 });
