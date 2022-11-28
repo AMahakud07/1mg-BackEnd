@@ -1,6 +1,6 @@
 
 // import mongoose from "mongoose";
-import cartModel from "../Models/cartModel.js";
+import cartModel from "../models/cartModel.js";
 
 
 // get the  get Cart data all data
