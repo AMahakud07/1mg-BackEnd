@@ -42,26 +42,50 @@ export const Multivitamins=async(req,res) =>{
     //     status:"true",
     //     data: data
     // })
+
+    // const brandOption = ["HealthVit","GNC","HealthyHey"]
+    
+
+    const page = parseInt(req.query.page) - 1 || 0;
+	const limit = parseInt(req.query.limit) || 5;
+    // let brand = req.query.brand || "all";
+    // let useEntered = req.query.use || " ";
+
+    // let filter = {
+    //         // brand: {$in: (brand=="all") ? brandOption:brand.split(",")}
+    //         brand : { $in: ['HealthVit']} 
+    // }
+
+    // sorting
     let data=[];
+
     console.log(req.query);
+
+    // if(req.query.brand=="HealthVit"){
+    //     data=await MultivitaminsModel.find({brand: "HealthVit"})
+    // }
+
     if(req.query.order=="asc" && req.query.sortBy=="final_price"){
         
-        data = await MultivitaminsModel.find().sort({final_price:1});
+        data = await MultivitaminsModel.find(filter).sort({final_price:1}).skip(page * limit).limit(limit);
 
     }else if(req.query.order=="desc" && req.query.sortBy=="final_price"){
-        data = await MultivitaminsModel.find().sort({final_price:-1});
+
+        data = await MultivitaminsModel.find(filter).sort({final_price:-1}).skip(page * limit).limit(limit);
     }
     else if(req.query.sortBy=="ratings"){
-        data = await MultivitaminsModel.find().sort({ratings:-1});
+        data = await MultivitaminsModel.find(filter).sort({ratings:-1}).skip(page * limit).limit(limit);
     }
     else{
-        data = await MultivitaminsModel.find();
+        data = await MultivitaminsModel.find(filter).skip(page * limit).limit(limit);
     }
+
     res.send({
             status:"true",
+            page : page+1,
+            limit: limit,
             data: data
-        })
-
+    })
 
     // try {
     //     let {page=1,sortBy="_id",order="asc",pageSize=20,startPoint=0, endPoint=Infinity}=req.query
