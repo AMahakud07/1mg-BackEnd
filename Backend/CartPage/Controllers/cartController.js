@@ -96,28 +96,54 @@ export const addCart = async (req,res)=>{
     }
 }
 
-export const updateCart=async(req,res) => {
-   try{
-    const {id}=req.params;
-    console.log(id)
-    let body = req.body.quantity;
-    if(id){
-        let data = await cartModel.findByIdAndUpdate( id,{quantity:body});
-        res.send({
-            status:"success",
-            data:data
-        })
-    }else{
-        res.status(400).send({
+// export const updateCart=async(req,res) => {
+//    try{
+//     const {id}=req.params;
+//     console.log(id)
+//     let body = req.body.quantity;
+//     if(id){
+//         let data = await cartModel.findByIdAndUpdate( id,{quantity:body});
+//         res.send({
+//             status:"success",
+//             data:data
+//         })
+//     }else{
+//         res.status(400).send({
+//             status:"false",
+//         })
+//     }
+//    }catch(err){
+//     res.status(500).send({
+//         status:"false",
+//         data:err.message
+//     })
+//    }
+// }
+
+
+export const updateCart = async (req,res)=>{
+    try{
+        let {user} = req.params;
+        if(user){
+            let body = req.body;
+            let updateCartData = await cartModel.findByIdAndUpdate(user,{price:body.price,count:body.count});
+            res.send({
+                status:"success",
+                data:updateCartData
+            })
+        }
+        else{
+            res.status(400).send({
+                status:"false",
+            })
+        }
+    }
+    catch(err){
+        res.status(500).send({
             status:"false",
+            data:err.message
         })
     }
-   }catch(err){
-    res.status(500).send({
-        status:"false",
-        data:err.message
-    })
-   }
 }
 
 
