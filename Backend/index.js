@@ -1,10 +1,18 @@
 import express from "express";
-import mongoose  from "mongoose";
+// const { register, login } = require("./controller/auth.controller");
 import connection from "./configs/db.js";
 import { Brands, Devices, Disease, Multivitamins, Topseller } from "./controller/productController.js";
 
-const app= express();
+
+const cors = require("cors");
+
+const app = express();
+
 app.use(express.json());
+app.use(cors());
+
+app.post("/register", register);
+app.post("/login", login);
 
 app.get('/brands',Brands);
 app.get('/topsellers',Topseller);

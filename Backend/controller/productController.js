@@ -43,7 +43,7 @@ export const Multivitamins=async(req,res) =>{
     //     data: data
     // })
 
-    // const brandOption = ["HealthVit","GNC","HealthyHey"]
+    const brandOption = ["HealthVit","GNC","HealthyHey"]
     
 
     const page = parseInt(req.query.page) - 1 || 0;
@@ -51,10 +51,10 @@ export const Multivitamins=async(req,res) =>{
     // let brand = req.query.brand || "all";
     // let useEntered = req.query.use || " ";
 
-    // let filter = {
-    //         // brand: {$in: (brand=="all") ? brandOption:brand.split(",")}
-    //         brand : { $in: ['HealthVit']} 
-    // }
+    let filter = {
+            brand: {$in: (brand=="all") ? brandOption:brand.split(",")}
+            // brand : { $in: ['HealthVit']} 
+    }
 
     // sorting
     let data=[];
