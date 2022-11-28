@@ -41,7 +41,7 @@ export const Multivitamins=async(req,res) =>{
 
 
     const page = parseInt(req.query.page) - 1 || 0;
-	const limit = parseInt(req.query.limit) || 5;
+	const limit = parseInt(req.query.limit) || 15;
     // let brand = req.query.brand || "all";
     // let useEntered = req.query.use || " ";
 
