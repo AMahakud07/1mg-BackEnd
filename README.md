@@ -2,7 +2,7 @@
 
 
 
-## [Deployed link](https://tata-1mg-clone-team1.netlify.app/)    ||       [Blog link](https://medium.com/@shubhamkmit9021/tata-1mg-clone-c637f589f284)
+## [Deployed link](https://tata-1mg-clone-team1.netlify.app/)   
 
 
 ### FUNCTIONALITIES
@@ -17,6 +17,12 @@
 
 ### Technology used:
 
+## Backend
+- Mongo DB
+- Render.com
+- Node js
+
+## Frontend
 - React
 - Redux
 - Chakra
