@@ -22,7 +22,7 @@
 - Render.com
 - Node js
 - Express
-- MongoDB Atlas
+- Mongo DB Atlas
 
 ## Frontend
 - React
