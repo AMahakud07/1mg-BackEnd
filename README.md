@@ -42,6 +42,7 @@
 - VS CODE
 - GITHUB
 - NETLIFY
+- RENDER.COM
 
 ## Home Page | Landing Page
 - here we provide the Navbar section. In the navbar section, we have three navbars as well as one carousel in the top body section.
